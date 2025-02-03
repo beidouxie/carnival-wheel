@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnival Spin Wheel</title>
+    <style>
+        /* Basic styles for the spin wheel */
+        .wheel {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: #ffcc00;
+        }
+
+        .spin-btn {
+            position: absolute;
+            bottom: 10px;
+            background-color: #ff5733;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Add spin effect */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .spinning {
+            animation: spin 2s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="wheel">
+        <div class="spin-btn" onclick="spinWheel()">Spin the Wheel!</div>
+    </div>
+
+    <script>
+        function spinWheel() {
+            const wheel = document.querySelector('.wheel');
+            wheel.classList.add('spinning');
+            setTimeout(() => {
+                wheel.classList.remove('spinning');
+            }, 2000); // Reset after spin
+        }
+    </script>
+</body>
+</html>
